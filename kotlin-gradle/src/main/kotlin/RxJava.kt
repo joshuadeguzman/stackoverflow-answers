@@ -1,9 +1,11 @@
 import io.reactivex.Observable
+import io.reactivex.functions.BiFunction
 import io.reactivex.subjects.PublishSubject
 
 fun main(args: Array<String>) {
     // testAnswer1()
-    testAnswer2()
+    // testAnswer2()
+    testAnswer3()
 }
 
 // https://stackoverflow.com/questions/54281902/rxjava-observable-create-not-emitting-events-for-switchifemptyobservable/54284694#54284694
@@ -59,4 +61,22 @@ fun testAnswer2() {
         // Test flag for trigger
         if (currentEmittedItemCount == maxEmittedItemCount) publishSubject.onComplete()
     }
+}
+
+// Swift related issue, but seems like they (kotlin/java) behave the same:
+// https://github.com/ReactiveX/RxSwift/issues/1205
+fun testAnswer3() {
+    val obs1 = Observable.just("test1")
+    val obs2 = Observable.just("test2")
+
+    // Passing this empty obs will not trigger the combineLatest
+    // val obs2 = Observable.empty<String>()
+
+    Observable.combineLatest(obs1, obs2, BiFunction { t1: String, t2: String ->
+        t1 + t2
+    }).subscribe({
+        print(it)
+    }, {
+        print(it)
+    })
 }
