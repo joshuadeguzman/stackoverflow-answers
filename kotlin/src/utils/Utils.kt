@@ -4,6 +4,7 @@ import java.time.Duration
 import java.util.*
 
 /**
+ * If using for Android, call requires API > 26
  * @param start Epoch time in milliseconds
  * @param end Epoch time in milliseconds
  */
