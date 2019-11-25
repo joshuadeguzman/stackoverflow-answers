@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9caecb9-21f8-4b5b-bca3-be3df5f865c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarTests.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +43,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="liveEdit" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/extensions" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -89,7 +95,7 @@
       <workItem from="1571045099719" duration="289000" />
       <workItem from="1571045404669" duration="148000" />
       <workItem from="1571045562891" duration="793000" />
-      <workItem from="1574678203926" duration="3550000" />
+      <workItem from="1574678203926" duration="4143000" />
     </task>
     <servers />
   </component>
