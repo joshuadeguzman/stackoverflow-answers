@@ -8,8 +8,7 @@ fun main(args: Array<String>) {
 }
 
 private fun testAnswer1() {
-//    val readableTimeStamp = getReadableBetween(1573759380 * 1000L, 1574629200 * 1000L)
-//    println("\nRemaining time is $readableTimeStamp")
-    val readableTimeStamp = getReadableBetweenLegacy(1574568300 * 1000L, 1574733600 * 1000L)
+    // val readableTimeStamp = getReadableBetween(1573759380 * 1000L, 1574629200 * 1000L)
+    val readableTimeStamp = getReadableBetweenLegacy(1574128800 * 1000L, 1574361120 * 1000L)
     println("\nRemaining time is $readableTimeStamp")
 }

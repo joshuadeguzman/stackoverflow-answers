@@ -69,10 +69,11 @@ fun getReadableBetweenLegacy(start: Long, end: Long): String {
     val diff = endDate.time - startDate.time
     calendar.timeInMillis = diff
 
-    val seconds = diff / 1000
-    val minutes = seconds / 60
-    val hours = minutes / 60
-    val days = hours / 24
+    val daySeconds = 1000 * 60 * 60 * 24
+    val hourSeconds = 1000 * 60 * 60
+    val days = diff / daySeconds
+    val hours = ((diff - (daySeconds * days)) / (hourSeconds));
+    val minutes = (diff - (daySeconds * days) - (hourSeconds * hours)) / (1000 * 60)
 
     val stringBuilder = StringBuilder()
     if (days != 0L) {
