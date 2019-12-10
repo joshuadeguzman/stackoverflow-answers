@@ -1,4 +1,4 @@
-package `answer-1`
+package answer_1
 
 fun main(args: Array<String>) {
     testAnswer1()

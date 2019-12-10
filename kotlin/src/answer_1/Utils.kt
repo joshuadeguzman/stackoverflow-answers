@@ -1,4 +1,4 @@
-package `answer-1`
+package answer_1
 
 import java.time.Duration
 import java.util.*
