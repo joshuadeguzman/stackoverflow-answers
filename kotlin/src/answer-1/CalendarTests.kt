@@ -1,7 +1,4 @@
-import utils.getReadableBetween
-import utils.getReadableBetweenLegacy
-import java.time.Duration
-import java.util.*
+package `answer-1`
 
 fun main(args: Array<String>) {
     testAnswer1()

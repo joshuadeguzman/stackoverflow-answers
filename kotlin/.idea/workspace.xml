@@ -63,14 +63,14 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="CalendarTestsKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="answer-1.CalendarTestsKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="kotlin" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="CalendarTestsKt" />
+      <option name="MAIN_CLASS_NAME" value="answer-1.CalendarTestsKt" />
       <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -78,7 +78,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.CalendarTestsKt" />
+        <item itemvalue="Kotlin.answer-1.CalendarTestsKt" />
       </list>
     </recent_temporary>
   </component>
