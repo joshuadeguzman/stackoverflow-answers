@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -28,24 +30,28 @@ class MyAppScreen extends StatefulWidget {
 }
 
 class MyAppScreenState extends State<MyAppScreen> {
-  Future _futureData;
-  TextEditingController _textEditingController;
-  int countChange = 0;
+  StreamController<List<String>> _phobiasStream;
+
+  final TextEditingController _textEditingController = TextEditingController();
+
+  void _loadPhobias() async =>
+      await rootBundle.loadString('lib/answer10/phobia.txt').then((phobias) {
+        List<String> _listOfSortedPhobias = [];
+        for (String i in LineSplitter().convert(phobias)) {
+          for (String t in _textEditingController.text.split('')) {
+            if (i.split('-').first.toString().contains(t)) {
+              _listOfSortedPhobias.add(i);
+            }
+          }
+        }
+        _phobiasStream.add(_listOfSortedPhobias);
+      });
 
   @override
   void initState() {
     super.initState();
-    _textEditingController = TextEditingController();
-    _futureData = _loadPhobias();
+    _phobiasStream = StreamController<List<String>>();
   }
-
-  Future<List<String>> _loadPhobias() async =>
-      await rootBundle.loadString('lib/answer10/phobia.txt').then((phobias) {
-        List _listOfAllPhobias = [];
-        List<String> _listOfSortedPhobias = [];
-        _textEditingController.addListener(() {});
-        return _listOfSortedPhobias;
-      });
 
   @override
   Widget build(BuildContext context) {
@@ -54,30 +60,29 @@ class MyAppScreenState extends State<MyAppScreen> {
         title: TextField(
           controller: _textEditingController,
           onChanged: (text) {
-            setState(() {
-              _futureData = _loadPhobias();
-            });
+            print("Text $text");
+            _loadPhobias();
           },
         ),
       ),
-      body: Center(
-        child: FutureBuilder(
-          future: _futureData,
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData) {
-              print("with data");
-              // Do whatever you want after succesfully loading the data
-              return Container(
-                child: Text("Data succesfully loaded!..."),
-              );
-            } else {
-              print("no data");
-              return Container(
-                child: Text("No data found..."),
-              );
-            }
-          },
-        ),
+      body: StreamBuilder(
+        stream: _phobiasStream.stream,
+        builder: (context, snapshot) {
+          return snapshot.hasData
+              ? Container(
+                  height: 300,
+                  child: ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      print("Data ${snapshot.data[index]}");
+                      return Text(snapshot.data[index]);
+                    },
+                  ),
+                )
+              : Center(
+                  child: CircularProgressIndicator(),
+                );
+        },
       ),
     );
   }
