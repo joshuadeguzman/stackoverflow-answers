@@ -1,0 +1,3 @@
+"How old are you?"
+"Where do you live?"
+"What is your age?"
